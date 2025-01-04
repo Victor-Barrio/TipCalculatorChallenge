@@ -1,0 +1,321 @@
+/* Starting the CSS and doing the manual reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styling the body */
+body {
+  /* Colors */
+  /* Primary Color*/
+  --strongCyan: hsl(172, 67%, 45%);
+
+  /* Neutral Colors */
+  --veryDarkCyan: hsl(183, 100%, 15%);
+  --darkGrayishCyan: hsl(186, 14%, 43%);
+  --grayishCyan: hsl(184, 14%, 56%);
+  --lightGrayishCyan: hsl(185, 41%, 84%);
+  --veryLightGrayishCyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+  --redError: hsl(0, 55%, 58%);
+
+  /* Font */
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+
+  /* Primary View */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  /* Background */
+  background-color: var(--lightGrayishCyan);
+}
+
+/* Styling the header */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 165px;
+}
+
+.logo {
+  width: 88px;
+  height: auto;
+}
+
+/* Styling the main container */
+main {
+  width: 100%;
+  flex: 1;
+  background-color: var(--white);
+  border-radius: 24px 24px 0 0;
+  padding: 22px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 16px;
+  color: var(--darkGrayishCyan);
+}
+
+h3 {
+  font-size: 16px;
+  color: var(--white);
+}
+
+input:focus {
+  outline: 2px solid var(--strongCyan);
+}
+
+/* Styling the bill container */
+.billContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Styling the bill and Number of People */
+.bill,
+.people {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  position: relative;
+}
+
+.bill input,
+.people input {
+  height: 49px;
+  background-color: var(--veryLightGrayishCyan);
+  border: none;
+  border-radius: 5px;
+  text-align: right;
+  padding-right: 18px;
+
+  /* Font */
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--veryDarkCyan);
+}
+
+.bill input::placeholder,
+.people input::placeholder {
+  color: var(--grayishCyan);
+  text-align: right;
+}
+
+.bill img,
+.people img {
+  position: absolute;
+  height: auto;
+  width: 13px;
+  left: 18px;
+  top: 45px;
+}
+
+/* Styling the tip buttons */
+.tip {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.buttonsTip {
+  display: flex;
+  flex-direction: row;
+  gap: 17px;
+  flex-wrap: wrap;
+}
+
+.tipBtn {
+  width: 47%;
+  height: 48px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--veryDarkCyan);
+
+  /* Font */
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--white);
+}
+
+.tipBtn.selected {
+  background-color: var(--strongCyan);
+  color: var(--veryDarkCyan);
+}
+
+.tipBtn#custom {
+  text-align: right;
+  padding-right: 18px;
+  background-color: var(--veryLightGrayishCyan);
+  color: var(--veryDarkCyan);
+}
+
+.tipBtn#custom::placeholder {
+  color: var(--darkGrayishCyan);
+}
+
+/* Styling the error messages */
+.messages {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: var(--redError);
+}
+
+#error {
+  display: block;
+}
+
+.people input.errorMessage {
+  border: 2px solid var(--redError);
+}
+
+/* Styling the calculator container */
+.calculator {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 25px 24px;
+  gap: 30px;
+  margin-top: 33px;
+  border-radius: 20px;
+  background-color: var(--veryDarkCyan);
+}
+
+.calculator .total {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.calculator .total p {
+  font-size: 14px;
+  color: var(--grayishCyan);
+}
+
+.calculator .total h4 {
+  font-size: 30px;
+  color: var(--strongCyan);
+}
+
+.calculator .total .amountTip,
+.calculator .total .amountTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calculator #reset {
+  width: 100%;
+  height: 48px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--strongCyan);
+
+  /* Font */
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--veryDarkCyan);
+}
+
+.calculator #reset.disabled {
+  opacity: 0.2;
+}
+
+/* Media Queries for the Desktop view */
+@media screen and (min-width: 1024px) {
+  /* Styling the body */
+  body {
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Styling the header */
+  header {
+    min-height: auto;
+  }
+
+  .logo {
+    position: relative;
+    bottom: 80px;
+  }
+
+  /* Styling the main container */
+  main {
+    flex: none;
+    width: 920px;
+    height: 480px;
+    border-radius: 24px;
+    padding: 30px 30px 30px 46px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Styling the bill container */
+  .billContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    width: 92.5%;
+    padding-top: 14px;
+  }
+
+  /* Styling the tip buttons */
+  .tip {
+    gap: 20px;
+  }
+
+  .buttonsTip {
+    padding-left: 2px;
+    gap: 15px;
+  }
+
+  .tipBtn {
+    width: 116px;
+  }
+
+  .tipBtn#custom {
+    text-align: center;
+    padding-right: 0px;
+  }
+
+  /* Styling the calculator container */
+  .calculator {
+    margin-top: 0;
+    justify-content: space-between;
+    padding: 40px;
+  }
+
+  .calculator .total {
+    gap: 30px;
+  }
+
+  .calculator .total h4 {
+    font-size: 47px;
+  }
+
+  .calculator #reset {
+    width: 100%;
+    height: 48px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--strongCyan);
+
+    /* Font */
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--veryDarkCyan);
+  }
+}
